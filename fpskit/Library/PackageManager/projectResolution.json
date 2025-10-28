@@ -1,18 +1,18 @@
 {
   "context": {
-    "projectPath": "C:/Users/Prince/Documents/GitHub/FPSKit/fpskit/Packages",
+    "projectPath": "C:/FPSCreatorKitStuff/fpskit/Packages",
     "unityVersion": "6000.0.56f1"
   },
   "inputs": [
-    "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Packages\\manifest.json",
-    "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Packages\\packages-lock.json",
+    "C:\\FPSCreatorKitStuff\\fpskit\\Packages\\manifest.json",
+    "C:\\FPSCreatorKitStuff\\fpskit\\Packages\\packages-lock.json",
     "C:\\Program Files\\Unity\\Hub\\Editor\\6000.0.56f1\\Editor\\Data\\Resources\\PackageManager\\BuiltInPackages\\BuiltInPackagesCombined.sha1"
   ],
   "outputs": {
     "com.unity.2d.sprite@1.0.0": {
       "name": "com.unity.2d.sprite",
       "displayName": "2D Sprite",
-      "resolvedPath": "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Library\\PackageCache\\com.unity.2d.sprite@a1146c20a947",
+      "resolvedPath": "C:\\FPSCreatorKitStuff\\fpskit\\Library\\PackageCache\\com.unity.2d.sprite@a1146c20a947",
       "fingerprint": "a1146c20a94767d627b9db262ae136cedef9c2c7",
       "editorCompatibility": "2019.2.0a1",
       "version": "1.0.0",
@@ -22,7 +22,7 @@
     "com.unity.2d.tilemap@1.0.0": {
       "name": "com.unity.2d.tilemap",
       "displayName": "2D Tilemap Editor",
-      "resolvedPath": "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Library\\PackageCache\\com.unity.2d.tilemap@3f6ff602680c",
+      "resolvedPath": "C:\\FPSCreatorKitStuff\\fpskit\\Library\\PackageCache\\com.unity.2d.tilemap@3f6ff602680c",
       "fingerprint": "3f6ff602680c7be3e17746d20ed91961ccec8b8f",
       "editorCompatibility": "2019.2.0a1",
       "version": "1.0.0",
@@ -32,7 +32,7 @@
     "com.unity.ads@4.4.2": {
       "name": "com.unity.ads",
       "displayName": "Advertisement Legacy",
-      "resolvedPath": "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Library\\PackageCache\\com.unity.ads@a7b997f68a1d",
+      "resolvedPath": "C:\\FPSCreatorKitStuff\\fpskit\\Library\\PackageCache\\com.unity.ads@a7b997f68a1d",
       "fingerprint": "a7b997f68a1d40387ca4d33fc75578709c140a37",
       "editorCompatibility": "2018.4.18f1",
       "version": "4.4.2",
@@ -42,7 +42,7 @@
     "com.unity.ai.navigation@2.0.8": {
       "name": "com.unity.ai.navigation",
       "displayName": "AI Navigation",
-      "resolvedPath": "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Library\\PackageCache\\com.unity.ai.navigation@eb5635ad590d",
+      "resolvedPath": "C:\\FPSCreatorKitStuff\\fpskit\\Library\\PackageCache\\com.unity.ai.navigation@eb5635ad590d",
       "fingerprint": "eb5635ad590d47cef2a5c920d9475cc222db3f67",
       "editorCompatibility": "6000.0.0a1",
       "version": "2.0.8",
@@ -52,7 +52,7 @@
     "com.unity.analytics@3.8.1": {
       "name": "com.unity.analytics",
       "displayName": "Analytics Library",
-      "resolvedPath": "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Library\\PackageCache\\com.unity.analytics@6cc66d58ac08",
+      "resolvedPath": "C:\\FPSCreatorKitStuff\\fpskit\\Library\\PackageCache\\com.unity.analytics@6cc66d58ac08",
       "fingerprint": "6cc66d58ac08950316d3b86a26c92187aca1ddb0",
       "editorCompatibility": "2019.3.0a1",
       "version": "3.8.1",
@@ -62,7 +62,7 @@
     "com.unity.collab-proxy@2.9.3": {
       "name": "com.unity.collab-proxy",
       "displayName": "Unity Version Control",
-      "resolvedPath": "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Library\\PackageCache\\com.unity.collab-proxy@ab839cc7d2ad",
+      "resolvedPath": "C:\\FPSCreatorKitStuff\\fpskit\\Library\\PackageCache\\com.unity.collab-proxy@ab839cc7d2ad",
       "fingerprint": "ab839cc7d2adf143e5378baf46edc31cbc5d84f7",
       "editorCompatibility": "2021.3.0f1",
       "version": "2.9.3",
@@ -72,7 +72,7 @@
     "com.unity.ext.nunit@2.0.5": {
       "name": "com.unity.ext.nunit",
       "displayName": "Custom NUnit",
-      "resolvedPath": "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Library\\PackageCache\\com.unity.ext.nunit@031a54704bff",
+      "resolvedPath": "C:\\FPSCreatorKitStuff\\fpskit\\Library\\PackageCache\\com.unity.ext.nunit@031a54704bff",
       "fingerprint": "031a54704bffe39e6a0324909f8eaa4565bdebf2",
       "editorCompatibility": "2019.4.0a1",
       "version": "2.0.5",
@@ -82,7 +82,7 @@
     "com.unity.ide.rider@3.0.36": {
       "name": "com.unity.ide.rider",
       "displayName": "JetBrains Rider Editor",
-      "resolvedPath": "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Library\\PackageCache\\com.unity.ide.rider@4d374c7eb6db",
+      "resolvedPath": "C:\\FPSCreatorKitStuff\\fpskit\\Library\\PackageCache\\com.unity.ide.rider@4d374c7eb6db",
       "fingerprint": "4d374c7eb6db6907c7e6925e3086c3c73f926e13",
       "editorCompatibility": "2019.4.6f1",
       "version": "3.0.36",
@@ -92,7 +92,7 @@
     "com.unity.ide.visualstudio@2.0.23": {
       "name": "com.unity.ide.visualstudio",
       "displayName": "Visual Studio Editor",
-      "resolvedPath": "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Library\\PackageCache\\com.unity.ide.visualstudio@198cdf337d13",
+      "resolvedPath": "C:\\FPSCreatorKitStuff\\fpskit\\Library\\PackageCache\\com.unity.ide.visualstudio@198cdf337d13",
       "fingerprint": "198cdf337d13c83ca953581515630d66b779e92b",
       "editorCompatibility": "2019.4.25f1",
       "version": "2.0.23",
@@ -102,7 +102,7 @@
     "com.unity.inputsystem@1.14.2": {
       "name": "com.unity.inputsystem",
       "displayName": "Input System",
-      "resolvedPath": "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Library\\PackageCache\\com.unity.inputsystem@be6c4fd0abf5",
+      "resolvedPath": "C:\\FPSCreatorKitStuff\\fpskit\\Library\\PackageCache\\com.unity.inputsystem@be6c4fd0abf5",
       "fingerprint": "be6c4fd0abf5b9b45f956b97294032a67f3c2f4d",
       "editorCompatibility": "2021.3.0a1",
       "version": "1.14.2",
@@ -112,7 +112,7 @@
     "com.unity.multiplayer.center@1.0.0": {
       "name": "com.unity.multiplayer.center",
       "displayName": "Multiplayer Center",
-      "resolvedPath": "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Library\\PackageCache\\com.unity.multiplayer.center@f3fb577b3546",
+      "resolvedPath": "C:\\FPSCreatorKitStuff\\fpskit\\Library\\PackageCache\\com.unity.multiplayer.center@f3fb577b3546",
       "fingerprint": "f3fb577b3546594b97b8cc34307cd621f60f1c73",
       "editorCompatibility": "6000.0.0a1",
       "version": "1.0.0",
@@ -122,7 +122,7 @@
     "com.unity.nuget.newtonsoft-json@3.2.1": {
       "name": "com.unity.nuget.newtonsoft-json",
       "displayName": "Newtonsoft Json",
-      "resolvedPath": "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Library\\PackageCache\\com.unity.nuget.newtonsoft-json@74deb55db2a0",
+      "resolvedPath": "C:\\FPSCreatorKitStuff\\fpskit\\Library\\PackageCache\\com.unity.nuget.newtonsoft-json@74deb55db2a0",
       "fingerprint": "74deb55db2a0c29ddfda576608bcb86abbd13ee6",
       "editorCompatibility": "2018.4.0a1",
       "version": "3.2.1",
@@ -132,7 +132,7 @@
     "com.unity.postprocessing@3.5.0": {
       "name": "com.unity.postprocessing",
       "displayName": "Post Processing",
-      "resolvedPath": "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Library\\PackageCache\\com.unity.postprocessing@94edadb6c5ab",
+      "resolvedPath": "C:\\FPSCreatorKitStuff\\fpskit\\Library\\PackageCache\\com.unity.postprocessing@94edadb6c5ab",
       "fingerprint": "94edadb6c5ab827a382b0d6f5f550866ffcfc586",
       "editorCompatibility": "2019.4.19f1",
       "version": "3.5.0",
@@ -142,7 +142,7 @@
     "com.unity.purchasing@4.12.2": {
       "name": "com.unity.purchasing",
       "displayName": "In App Purchasing",
-      "resolvedPath": "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Library\\PackageCache\\com.unity.purchasing@649c6c7b3b1b",
+      "resolvedPath": "C:\\FPSCreatorKitStuff\\fpskit\\Library\\PackageCache\\com.unity.purchasing@649c6c7b3b1b",
       "fingerprint": "649c6c7b3b1b6277839041f4987c0a1e66176678",
       "editorCompatibility": "2020.3.0a1",
       "version": "4.12.2",
@@ -152,7 +152,7 @@
     "com.unity.render-pipelines.universal@17.0.4": {
       "name": "com.unity.render-pipelines.universal",
       "displayName": "Universal Render Pipeline",
-      "resolvedPath": "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Library\\PackageCache\\com.unity.render-pipelines.universal@ec146228694a",
+      "resolvedPath": "C:\\FPSCreatorKitStuff\\fpskit\\Library\\PackageCache\\com.unity.render-pipelines.universal@ec146228694a",
       "fingerprint": "ec146228694adc0b6aed287f58ab791171ba0687",
       "editorCompatibility": "6000.0.0a1",
       "version": "17.0.4",
@@ -162,7 +162,7 @@
     "com.unity.services.analytics@6.0.3": {
       "name": "com.unity.services.analytics",
       "displayName": "Analytics",
-      "resolvedPath": "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Library\\PackageCache\\com.unity.services.analytics@3692623288ba",
+      "resolvedPath": "C:\\FPSCreatorKitStuff\\fpskit\\Library\\PackageCache\\com.unity.services.analytics@3692623288ba",
       "fingerprint": "3692623288ba229ed0f5eb57c112f2723e2f03cf",
       "editorCompatibility": "2021.3.0a1",
       "version": "6.0.3",
@@ -172,7 +172,7 @@
     "com.unity.services.core@1.14.0": {
       "name": "com.unity.services.core",
       "displayName": "Services Core",
-      "resolvedPath": "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Library\\PackageCache\\com.unity.services.core@9e81a5e38245",
+      "resolvedPath": "C:\\FPSCreatorKitStuff\\fpskit\\Library\\PackageCache\\com.unity.services.core@9e81a5e38245",
       "fingerprint": "9e81a5e382457b799480b311ce51187be99abbbf",
       "editorCompatibility": "2021.3.0a1",
       "version": "1.14.0",
@@ -182,7 +182,7 @@
     "com.unity.test-framework@1.5.1": {
       "name": "com.unity.test-framework",
       "displayName": "Test Framework",
-      "resolvedPath": "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Library\\PackageCache\\com.unity.test-framework@16d3eb9e8c28",
+      "resolvedPath": "C:\\FPSCreatorKitStuff\\fpskit\\Library\\PackageCache\\com.unity.test-framework@16d3eb9e8c28",
       "fingerprint": "16d3eb9e8c282ca13732548b32bbeec6688466b6",
       "editorCompatibility": "2022.3.0a1",
       "version": "1.5.1",
@@ -192,7 +192,7 @@
     "com.unity.timeline@1.8.9": {
       "name": "com.unity.timeline",
       "displayName": "Timeline",
-      "resolvedPath": "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Library\\PackageCache\\com.unity.timeline@6b9e48457ddb",
+      "resolvedPath": "C:\\FPSCreatorKitStuff\\fpskit\\Library\\PackageCache\\com.unity.timeline@6b9e48457ddb",
       "fingerprint": "6b9e48457ddb4f64813d77fd77efc79a8f3102ae",
       "editorCompatibility": "2021.3.0a1",
       "version": "1.8.9",
@@ -202,7 +202,7 @@
     "com.unity.ugui@2.0.0": {
       "name": "com.unity.ugui",
       "displayName": "Unity UI",
-      "resolvedPath": "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Library\\PackageCache\\com.unity.ugui@5c0fb321704a",
+      "resolvedPath": "C:\\FPSCreatorKitStuff\\fpskit\\Library\\PackageCache\\com.unity.ugui@5c0fb321704a",
       "fingerprint": "5c0fb321704a4f037a6626a8659e697ed6f54b42",
       "editorCompatibility": "2019.2.0a1",
       "version": "2.0.0",
@@ -212,7 +212,7 @@
     "com.unity.visualscripting@1.9.7": {
       "name": "com.unity.visualscripting",
       "displayName": "Visual Scripting",
-      "resolvedPath": "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Library\\PackageCache\\com.unity.visualscripting@6279e2b7c485",
+      "resolvedPath": "C:\\FPSCreatorKitStuff\\fpskit\\Library\\PackageCache\\com.unity.visualscripting@6279e2b7c485",
       "fingerprint": "6279e2b7c4858e56cca7f367cd38c49ef66778c9",
       "editorCompatibility": "2021.3.0a1",
       "version": "1.9.7",
@@ -222,7 +222,7 @@
     "com.unity.xr.legacyinputhelpers@2.1.12": {
       "name": "com.unity.xr.legacyinputhelpers",
       "displayName": "XR Legacy Input Helpers",
-      "resolvedPath": "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Library\\PackageCache\\com.unity.xr.legacyinputhelpers@b7579e86f3b4",
+      "resolvedPath": "C:\\FPSCreatorKitStuff\\fpskit\\Library\\PackageCache\\com.unity.xr.legacyinputhelpers@b7579e86f3b4",
       "fingerprint": "b7579e86f3b456c909fda6b875fba7ab1eeb1322",
       "editorCompatibility": "2019.4.0a1",
       "version": "2.1.12",
@@ -504,7 +504,7 @@
     "com.unity.render-pipelines.core@17.0.4": {
       "name": "com.unity.render-pipelines.core",
       "displayName": "Scriptable Render Pipeline Core",
-      "resolvedPath": "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Library\\PackageCache\\com.unity.render-pipelines.core@7f4c442d4f3e",
+      "resolvedPath": "C:\\FPSCreatorKitStuff\\fpskit\\Library\\PackageCache\\com.unity.render-pipelines.core@7f4c442d4f3e",
       "fingerprint": "7f4c442d4f3e2dcd30f00d51fb4111a07d6ddcb4",
       "editorCompatibility": "6000.0.0a1",
       "version": "17.0.4",
@@ -514,7 +514,7 @@
     "com.unity.shadergraph@17.0.4": {
       "name": "com.unity.shadergraph",
       "displayName": "Shader Graph",
-      "resolvedPath": "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Library\\PackageCache\\com.unity.shadergraph@58c763b6444e",
+      "resolvedPath": "C:\\FPSCreatorKitStuff\\fpskit\\Library\\PackageCache\\com.unity.shadergraph@58c763b6444e",
       "fingerprint": "58c763b6444ecd3e0acae6fb62bb3057541917cd",
       "editorCompatibility": "6000.0.0a1",
       "version": "17.0.4",
@@ -524,7 +524,7 @@
     "com.unity.render-pipelines.universal-config@17.0.3": {
       "name": "com.unity.render-pipelines.universal-config",
       "displayName": "Universal Render Pipeline Config",
-      "resolvedPath": "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Library\\PackageCache\\com.unity.render-pipelines.universal-config@dd206bf35d04",
+      "resolvedPath": "C:\\FPSCreatorKitStuff\\fpskit\\Library\\PackageCache\\com.unity.render-pipelines.universal-config@dd206bf35d04",
       "fingerprint": "dd206bf35d0451204981fdb31d4c6831a0ee2a7e",
       "editorCompatibility": "6000.0.0a1",
       "version": "17.0.3",
@@ -534,7 +534,7 @@
     "com.unity.searcher@4.9.3": {
       "name": "com.unity.searcher",
       "displayName": "Searcher",
-      "resolvedPath": "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Library\\PackageCache\\com.unity.searcher@1e17ce91558d",
+      "resolvedPath": "C:\\FPSCreatorKitStuff\\fpskit\\Library\\PackageCache\\com.unity.searcher@1e17ce91558d",
       "fingerprint": "1e17ce91558d1d9127554adc03d275f39a7466a2",
       "editorCompatibility": "2019.1.0a1",
       "version": "4.9.3",
@@ -544,7 +544,7 @@
     "com.unity.burst@1.8.24": {
       "name": "com.unity.burst",
       "displayName": "Burst",
-      "resolvedPath": "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Library\\PackageCache\\com.unity.burst@f7a407abf4d5",
+      "resolvedPath": "C:\\FPSCreatorKitStuff\\fpskit\\Library\\PackageCache\\com.unity.burst@f7a407abf4d5",
       "fingerprint": "f7a407abf4d5abf19ce630824dcde261e02ed97e",
       "editorCompatibility": "2021.3.0a1",
       "version": "1.8.24",
@@ -554,7 +554,7 @@
     "com.unity.mathematics@1.3.2": {
       "name": "com.unity.mathematics",
       "displayName": "Mathematics",
-      "resolvedPath": "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Library\\PackageCache\\com.unity.mathematics@8017b507cc74",
+      "resolvedPath": "C:\\FPSCreatorKitStuff\\fpskit\\Library\\PackageCache\\com.unity.mathematics@8017b507cc74",
       "fingerprint": "8017b507cc74bf0a1dd14b18aa860569f807314d",
       "editorCompatibility": "2021.3.0a1",
       "version": "1.3.2",
@@ -564,7 +564,7 @@
     "com.unity.collections@2.5.1": {
       "name": "com.unity.collections",
       "displayName": "Collections",
-      "resolvedPath": "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Library\\PackageCache\\com.unity.collections@56bff8827a7e",
+      "resolvedPath": "C:\\FPSCreatorKitStuff\\fpskit\\Library\\PackageCache\\com.unity.collections@56bff8827a7e",
       "fingerprint": "56bff8827a7ef6d44fcee4f36e558a74da89c1a0",
       "editorCompatibility": "2022.3.11f1",
       "version": "2.5.1",
@@ -574,7 +574,7 @@
     "com.unity.rendering.light-transport@1.0.1": {
       "name": "com.unity.rendering.light-transport",
       "displayName": "Unity Light Transport Library",
-      "resolvedPath": "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Library\\PackageCache\\com.unity.rendering.light-transport@9bd588f963c0",
+      "resolvedPath": "C:\\FPSCreatorKitStuff\\fpskit\\Library\\PackageCache\\com.unity.rendering.light-transport@9bd588f963c0",
       "fingerprint": "9bd588f963c0ca6105f0978f9cfc66444032a804",
       "editorCompatibility": "2023.3.0b1",
       "version": "1.0.1",
@@ -584,7 +584,7 @@
     "com.unity.nuget.mono-cecil@1.11.4": {
       "name": "com.unity.nuget.mono-cecil",
       "displayName": "Mono Cecil",
-      "resolvedPath": "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Library\\PackageCache\\com.unity.nuget.mono-cecil@d6f9955a5d5f",
+      "resolvedPath": "C:\\FPSCreatorKitStuff\\fpskit\\Library\\PackageCache\\com.unity.nuget.mono-cecil@d6f9955a5d5f",
       "fingerprint": "d6f9955a5d5f84d45442ff1ad0fb694cc6e2fd62",
       "editorCompatibility": "2018.4.0a1",
       "version": "1.11.4",
@@ -594,7 +594,7 @@
     "com.unity.test-framework.performance@3.1.0": {
       "name": "com.unity.test-framework.performance",
       "displayName": "Performance testing API",
-      "resolvedPath": "C:\\Users\\Prince\\Documents\\GitHub\\FPSKit\\fpskit\\Library\\PackageCache\\com.unity.test-framework.performance@92d1d09a72ed",
+      "resolvedPath": "C:\\FPSCreatorKitStuff\\fpskit\\Library\\PackageCache\\com.unity.test-framework.performance@92d1d09a72ed",
       "fingerprint": "92d1d09a72ed696fa23fd76c675b29d211664b50",
       "editorCompatibility": "2020.3.0a1",
       "version": "3.1.0",
