@@ -653,6 +653,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -674,6 +676,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -2944,6 +2947,46 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -2.16
       objectReference: {fileID: 0}
+    - target: {fileID: 5769907350465429625, guid: e40441bf622af7a42a692f1365fc8b11,
+        type: 3}
+      propertyPath: PitchMax
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769907350465429625, guid: e40441bf622af7a42a692f1365fc8b11,
+        type: 3}
+      propertyPath: PitchMin
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769907350465429625, guid: e40441bf622af7a42a692f1365fc8b11,
+        type: 3}
+      propertyPath: Clips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769907350465429625, guid: e40441bf622af7a42a692f1365fc8b11,
+        type: 3}
+      propertyPath: 'Clips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 849ab1b6ae344ca4a8059d8d5d9bfe7e, type: 3}
+    - target: {fileID: 5769907350465429625, guid: e40441bf622af7a42a692f1365fc8b11,
+        type: 3}
+      propertyPath: 'Clips.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 849ab1b6ae344ca4a8059d8d5d9bfe7e, type: 3}
+    - target: {fileID: 5769907350465429625, guid: e40441bf622af7a42a692f1365fc8b11,
+        type: 3}
+      propertyPath: 'Clips.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 849ab1b6ae344ca4a8059d8d5d9bfe7e, type: 3}
+    - target: {fileID: 5769907350465429625, guid: e40441bf622af7a42a692f1365fc8b11,
+        type: 3}
+      propertyPath: 'Clips.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 849ab1b6ae344ca4a8059d8d5d9bfe7e, type: 3}
+    - target: {fileID: 5769907350465429625, guid: e40441bf622af7a42a692f1365fc8b11,
+        type: 3}
+      propertyPath: 'Clips.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 849ab1b6ae344ca4a8059d8d5d9bfe7e, type: 3}
     - target: {fileID: 8652661900029830682, guid: e40441bf622af7a42a692f1365fc8b11,
         type: 3}
       propertyPath: m_Volume
