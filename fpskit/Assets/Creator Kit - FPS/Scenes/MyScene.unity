@@ -1293,8 +1293,11 @@ MonoBehaviour:
   health: 5
   pointValue: 0
   DestroyedEffect: {fileID: 0}
+  ShieldHitEffect: {fileID: 0}
   HitPlayer: {fileID: 2082510019}
   IdleSource: {fileID: 0}
+  vulnerableAngle: 90
+  showDebugRays: 1
 --- !u!1001 &757582095
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1572,6 +1575,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818527331259110205, guid: 547e1bb5b288bc14187ab3bdf87891f6,
+        type: 3}
+      propertyPath: vulnerableAngle
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 8070109232193553997, guid: 547e1bb5b288bc14187ab3bdf87891f6,
         type: 3}
