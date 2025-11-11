@@ -26,6 +26,9 @@ public class Target : MonoBehaviour
     bool m_Destroyed = false;
     float m_CurrentHealth;
 
+    // Dictionary to track shield planes and their directions
+    private Dictionary<string, ShieldPlane> m_ShieldPlanes = new Dictionary<string, ShieldPlane>();
+
     void Awake()
     {
         Helpers.RecursiveLayerChange(transform, LayerMask.NameToLayer("Target"));
@@ -43,11 +46,13 @@ public class Target : MonoBehaviour
         if(IdleSource != null)
             IdleSource.time = Random.Range(0.0f, IdleSource.clip.length);
             
+        // Initialize shield visual
         InitializeShieldVisual();
     }
 
     void Update()
     {
+        // Update shield visual visibility based on debug setting
         if (shieldVisual != null && shieldVisual.activeSelf != showDebugRays)
         {
             shieldVisual.SetActive(showDebugRays);
@@ -61,19 +66,22 @@ public class Target : MonoBehaviour
 
     void InitializeShieldVisual()
     {
+        // Create shield visual if not assigned
         if (shieldVisual == null)
         {
             CreateDefaultShieldVisual();
         }
         
+        // Set initial visibility
         if (shieldVisual != null)
         {
             shieldVisual.SetActive(showDebugRays);
             
+            // Position the shield around the target
             shieldVisual.transform.SetParent(transform);
-            shieldVisual.transform.localPosition = new Vector3(0, 0, 0.5f);
+            shieldVisual.transform.localPosition = Vector3.zero;
             shieldVisual.transform.localRotation = Quaternion.identity;
-            shieldVisual.transform.localScale = Vector3.one * 1.5f;
+            shieldVisual.transform.localScale = Vector3.one * 2f; // Perfect cube scale
         }
     }
 
@@ -81,85 +89,177 @@ public class Target : MonoBehaviour
     {
         shieldVisual = new GameObject("ShieldVisual");
         
-        MeshFilter meshFilter = shieldVisual.AddComponent<MeshFilter>();
-        MeshRenderer renderer = shieldVisual.AddComponent<MeshRenderer>();
-        
-        Mesh shieldMesh = new Mesh();
-        
-        Vector3[] vertices = {
-            // Front face (Z+)
-            new Vector3(-0.5f, -0.5f, 0.5f), new Vector3(0.5f, -0.5f, 0.5f), new Vector3(0.5f, 0.5f, 0.5f), new Vector3(-0.5f, 0.5f, 0.5f),
-            // Top face (Y+)
-            new Vector3(-0.5f, 0.5f, 0.5f), new Vector3(0.5f, 0.5f, 0.5f), new Vector3(0.5f, 0.5f, -0.5f), new Vector3(-0.5f, 0.5f, -0.5f),
-            // Bottom face (Y-)
-            new Vector3(-0.5f, -0.5f, -0.5f), new Vector3(0.5f, -0.5f, -0.5f), new Vector3(0.5f, -0.5f, 0.5f), new Vector3(-0.5f, -0.5f, 0.5f),
-            // Left face (X-)
-            new Vector3(-0.5f, -0.5f, -0.5f), new Vector3(-0.5f, -0.5f, 0.5f), new Vector3(-0.5f, 0.5f, 0.5f), new Vector3(-0.5f, 0.5f, -0.5f),
-            // Right face (X+)
-            new Vector3(0.5f, -0.5f, 0.5f), new Vector3(0.5f, -0.5f, -0.5f), new Vector3(0.5f, 0.5f, -0.5f), new Vector3(0.5f, 0.5f, 0.5f)
-        };
-        
-        int[] triangles = {
-            // Front face
-            0, 2, 1, 0, 3, 2,
-            // Top face
-            4, 6, 5, 4, 7, 6,
-            // Bottom face
-            8, 10, 9, 8, 11, 10,
-            // Left face
-            12, 14, 13, 12, 15, 14,
-            // Right face
-            16, 18, 17, 16, 19, 18
-        };
+        // Create separate quads for each shield face with different colors
+        CreateShieldFace(Vector3.forward, "Front", Color.red, false);        // Red front (blocking)
+        CreateShieldFace(Vector3.up, "Top", Color.green, false);            // Green top (blocking)
+        CreateShieldFace(Vector3.down, "Bottom", Color.yellow, false);      // Yellow bottom (blocking)
+        CreateShieldFace(Vector3.left, "Left", Color.cyan, false);          // Cyan left (blocking)
+        CreateShieldFace(Vector3.right, "Right", Color.magenta, false);     // Magenta right (blocking)
+        CreateShieldFace(Vector3.back, "Back", Color.black, true);          // Black back (vulnerable)
+    }
 
-        Vector2[] uvs = new Vector2[vertices.Length];
-        for (int i = 0; i < uvs.Length; i++)
+    void CreateShieldFace(Vector3 direction, string faceName, Color color, bool isVulnerable)
+    {
+        GameObject face = GameObject.CreatePrimitive(PrimitiveType.Quad);
+        face.name = "ShieldFace_" + faceName;
+        face.transform.SetParent(shieldVisual.transform);
+        
+        // Position the face at the appropriate position to form a perfect cube
+        face.transform.localPosition = direction * 0.5f;
+        
+        // Rotate to face outward from the center (fixed orientation)
+        face.transform.localRotation = Quaternion.LookRotation(direction);
+        
+        // Scale to create a perfect cube (1x1 unit quads positioned 0.5 units from center)
+        face.transform.localScale = Vector3.one;
+        
+        // Remove the collider so it doesn't interfere with gameplay
+        Collider collider = face.GetComponent<Collider>();
+        if (collider != null)
+            Destroy(collider);
+        
+        // Create colored material
+        Renderer renderer = face.GetComponent<Renderer>();
+        if (renderer != null)
         {
-            uvs[i] = new Vector2(vertices[i].x + 0.5f, vertices[i].y + 0.5f);
+            Material shieldMat = new Material(Shader.Find("Unlit/Color"));
+            
+            // Make vulnerable shield semi-transparent so it's visible but not obstructive
+            if (isVulnerable)
+            {
+                shieldMat.color = new Color(color.r, color.g, color.b, 0.3f);
+            }
+            else
+            {
+                shieldMat.color = color;
+            }
+            renderer.material = shieldMat;
         }
-        
-        shieldMesh.vertices = vertices;
-        shieldMesh.triangles = triangles;
-        shieldMesh.uv = uvs;
-        shieldMesh.RecalculateNormals();
-        
-        meshFilter.mesh = shieldMesh;
-        
-        Material shieldMat = new Material(Shader.Find("Standard"));
-        shieldMat.color = Color.blue;
-        renderer.material = shieldMat;
+
+        // Store shield plane data for vulnerability checking
+        m_ShieldPlanes[faceName] = new ShieldPlane
+        {
+            Direction = direction,
+            WorldNormal = transform.TransformDirection(direction),
+            IsActive = true,
+            IsVulnerable = isVulnerable,
+            FaceName = faceName
+        };
     }
 
     void DrawShieldVisualization()
     {
-        Vector3 shieldCenter = transform.position + transform.forward * 0.5f;
-        float shieldSize = 1f;
+        Vector3 center = transform.position;
+        float size = 1f;
         
-        Vector3 topLeft = shieldCenter + (transform.up * shieldSize * 0.5f) - (transform.right * shieldSize * 0.5f);
-        Vector3 topRight = shieldCenter + (transform.up * shieldSize * 0.5f) + (transform.right * shieldSize * 0.5f);
-        Vector3 bottomLeft = shieldCenter - (transform.up * shieldSize * 0.5f) - (transform.right * shieldSize * 0.5f);
-        Vector3 bottomRight = shieldCenter - (transform.up * shieldSize * 0.5f) + (transform.right * shieldSize * 0.5f);
+        // Draw wireframe cube with different colors for each face
+        Vector3[] corners = {
+            center + new Vector3(-size, -size, -size),
+            center + new Vector3(size, -size, -size),
+            center + new Vector3(size, size, -size),
+            center + new Vector3(-size, size, -size),
+            center + new Vector3(-size, -size, size),
+            center + new Vector3(size, -size, size),
+            center + new Vector3(size, size, size),
+            center + new Vector3(-size, size, size)
+        };
         
-        Debug.DrawLine(topLeft, topRight, Color.blue);
-        Debug.DrawLine(topRight, bottomRight, Color.blue);
-        Debug.DrawLine(bottomRight, bottomLeft, Color.blue);
-        Debug.DrawLine(bottomLeft, topLeft, Color.blue);
+        // Draw front face (red)
+        Debug.DrawLine(corners[4], corners[5], Color.red);
+        Debug.DrawLine(corners[5], corners[6], Color.red);
+        Debug.DrawLine(corners[6], corners[7], Color.red);
+        Debug.DrawLine(corners[7], corners[4], Color.red);
         
-        Debug.DrawLine(topLeft, bottomRight, Color.blue);
-        Debug.DrawLine(topRight, bottomLeft, Color.blue);
+        // Draw top face (green)
+        Debug.DrawLine(corners[2], corners[6], Color.green);
+        Debug.DrawLine(corners[3], corners[7], Color.green);
+        
+        // Draw bottom face (yellow)
+        Debug.DrawLine(corners[0], corners[4], Color.yellow);
+        Debug.DrawLine(corners[1], corners[5], Color.yellow);
+        
+        // Draw left face (cyan)
+        Debug.DrawLine(corners[0], corners[3], Color.cyan);
+        Debug.DrawLine(corners[4], corners[7], Color.cyan);
+        
+        // Draw right face (magenta)
+        Debug.DrawLine(corners[1], corners[2], Color.magenta);
+        Debug.DrawLine(corners[5], corners[6], Color.magenta);
+
+        // Draw back face (black) with X to mark vulnerability
+        DrawBackVulnerabilityX();
+
+        // Draw normals for each shield plane
+        foreach (var shieldPlane in m_ShieldPlanes.Values)
+        {
+            Vector3 planeCenter = transform.position + transform.TransformDirection(shieldPlane.Direction) * 0.5f;
+            Color normalColor = shieldPlane.IsVulnerable ? Color.black : Color.white;
+            Debug.DrawRay(planeCenter, shieldPlane.WorldNormal * 0.5f, normalColor);
+        }
+    }
+
+    void DrawBackVulnerabilityX()
+    {
+        Vector3 backCenter = transform.position + transform.TransformDirection(Vector3.back) * 0.5f;
+        float backSize = 1f;
+        
+        // Calculate the four corners of the back plane
+        Vector3 backTopLeft = backCenter + 
+                            (transform.up * backSize * 0.5f) - 
+                            (transform.right * backSize * 0.5f);
+        
+        Vector3 backTopRight = backCenter + 
+                             (transform.up * backSize * 0.5f) + 
+                             (transform.right * backSize * 0.5f);
+        
+        Vector3 backBottomLeft = backCenter - 
+                               (transform.up * backSize * 0.5f) - 
+                               (transform.right * backSize * 0.5f);
+        
+        Vector3 backBottomRight = backCenter - 
+                                (transform.up * backSize * 0.5f) + 
+                                (transform.right * backSize * 0.5f);
+
+        // Draw the X - diagonal lines crossing the entire back plane
+        Debug.DrawLine(backTopLeft, backBottomRight, Color.black);
+        Debug.DrawLine(backTopRight, backBottomLeft, Color.black);
+
+        // Draw the border of the vulnerable back area
+        Debug.DrawLine(backTopLeft, backTopRight, Color.black);
+        Debug.DrawLine(backTopRight, backBottomRight, Color.black);
+        Debug.DrawLine(backBottomRight, backBottomLeft, Color.black);
+        Debug.DrawLine(backBottomLeft, backTopLeft, Color.black);
     }
 
     public void Got(float damage, Vector3 damageSourcePosition)
     {
         Vector3 damageDirection = (transform.position - damageSourcePosition).normalized;
 
-        if (IsVulnerableFromDirection(damageDirection))
+        // Find which shield plane was hit
+        ShieldPlane hitShield = GetHitShieldPlane(damageDirection);
+        
+        if (hitShield != null)
         {
-            ApplyDamage(damage);
+            Debug.Log($"Hit shield: {hitShield.FaceName}, Vulnerable: {hitShield.IsVulnerable}, Dot: {Vector3.Dot(hitShield.WorldNormal, -damageDirection)}");
+            
+            if (hitShield.IsVulnerable)
+            {
+                // Vulnerable shield hit - apply damage
+                Debug.Log("Vulnerable shield hit - applying damage!");
+                ApplyDamage(damage);
+            }
+            else
+            {
+                // Regular shield hit - block damage
+                Debug.Log("Protected shield hit - blocking damage!");
+                BlockDamage(damageSourcePosition);
+            }
         }
         else
         {
-            BlockDamage(damageSourcePosition);
+            // No shield hit (edge case) - apply damage
+            Debug.Log("No shield hit - applying damage!");
+            ApplyDamage(damage);
         }
     }
 
@@ -168,11 +268,38 @@ public class Target : MonoBehaviour
         BlockDamage(transform.position + transform.forward);
     }
 
-    bool IsVulnerableFromDirection(Vector3 damageDirection)
+    ShieldPlane GetHitShieldPlane(Vector3 damageDirection)
     {
-        float dot = Vector3.Dot(-transform.forward, damageDirection);
+        // Update all shield normals first
+        foreach (var shieldPlane in m_ShieldPlanes.Values)
+        {
+            shieldPlane.WorldNormal = transform.TransformDirection(shieldPlane.Direction);
+        }
 
-        return dot > 0.7f;
+        ShieldPlane bestMatch = null;
+        float highestDot = 0f;
+
+        // Find the shield plane that best matches the damage direction
+        foreach (var shieldPlane in m_ShieldPlanes.Values)
+        {
+            float dot = Vector3.Dot(shieldPlane.WorldNormal, -damageDirection);
+            
+            // Debug visualization for the check
+            if (showDebugRays)
+            {
+                Vector3 planeCenter = transform.position + shieldPlane.WorldNormal * 0.5f;
+                Debug.DrawRay(planeCenter, -damageDirection * 1f, 
+                            dot > 0.7f ? Color.yellow : Color.gray, 0.1f);
+            }
+            
+            if (dot > 0.7f && dot > highestDot)
+            {
+                highestDot = dot;
+                bestMatch = shieldPlane;
+            }
+        }
+
+        return bestMatch;
     }
 
     void BlockDamage(Vector3 hitPosition)
@@ -226,5 +353,16 @@ public class Target : MonoBehaviour
         gameObject.SetActive(false);
        
         GameSystem.Instance.TargetDestroyed(pointValue);
+    }
+
+    // Helper class to store shield plane data
+    [System.Serializable]
+    private class ShieldPlane
+    {
+        public Vector3 Direction;
+        public Vector3 WorldNormal;
+        public bool IsActive;
+        public bool IsVulnerable;
+        public string FaceName;
     }
 }
