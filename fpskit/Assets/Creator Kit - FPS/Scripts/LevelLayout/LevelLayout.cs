@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 #if UNITY_EDITOR
@@ -9,9 +9,7 @@ using UnityEditor;
 public class LevelLayout : MonoBehaviour
 {
     public LevelRoom[] rooms = new LevelRoom[0];
-     
-    //Each piece when they are destroyed try to update the pieces array, problem is if the system is destroyed, that
-    //spawned an assert. So we use that bool to know if the system is getting destroyed.
+
     public bool Destroyed { get; private set; }
     
     void OnDestroy()
@@ -19,8 +17,6 @@ public class LevelLayout : MonoBehaviour
         Destroyed = true;
     }
 
-//This is a small hack to go around the fact that hideFlag change on prefab instance (like the room) does not get saved
-//in the scene. So we make sure (only in editor) to hide all the room manually every frame
 #if UNITY_EDITOR
     void Update()
     {
@@ -29,7 +25,10 @@ public class LevelLayout : MonoBehaviour
         
         foreach (var room in rooms)
         {
-            room.gameObject.hideFlags = HideFlags.HideInHierarchy;
+            if (room != null && room.gameObject != null)
+            {
+                room.gameObject.hideFlags = HideFlags.HideInHierarchy;
+            }
         }
     }
 #endif
@@ -106,7 +105,7 @@ public class LevelLayoutEditor : Editor
         if (editing != m_EditingLayout)
         {
             if (!editing)
-            {//disabled editing, cleanup
+            {
                 if(m_CurrentInstance != null)
                     DestroyImmediate(m_CurrentInstance.gameObject);
                 m_CurrentGroup = null;
@@ -170,8 +169,7 @@ public class LevelLayoutEditor : Editor
             }
             
             EditorGUILayout.EndHorizontal();
-            
-            //we repaint all scene view to be sure they get a notification so they can "steal" focus in edit mode
+
             SceneView.RepaintAll();
         }
         
@@ -305,10 +303,6 @@ public class LevelLayoutEditor : Editor
                     
             if(r == null)
                 continue;
-            
-            //This bit is inneficient, but should be enough for our purpose here in the kit. In very big scene
-            //it could slow down the editing process. Bound should probably be stored in local space or better should
-            //find a way to use the built-in picking but that require more complexity than necessary for those small kit
             Bounds b = new Bounds();
             bool init = false;
             
@@ -331,8 +325,6 @@ public class LevelLayoutEditor : Editor
             }
             else
             {
-                //if the piece got no collider, it may be an "empty" piece used to introduce gap, so instead look for
-                //a collider to find it's size.
                 Collider[] colliders = r.GetComponentsInChildren<Collider>();
                 for (int k = 0; k < colliders.Length; ++k)
                 {
@@ -400,9 +392,6 @@ public class LevelLayoutEditor : Editor
         
         m_CurrentInstance.gameObject.SetActive(true);
         
-        //Since the scene view is not having focus after we choose a new room, pressing R won't rotate it until
-        //we click on the scene view. So we force focus on windows. But we only do it if the cursor is above the
-        //scene view otherwise we mess focus on OSX with the scene view always stealing focus from other app
         if(SceneView.currentDrawingSceneView.position.Contains(GUIUtility.GUIToScreenPoint(Event.current.mousePosition)))
             SceneView.currentDrawingSceneView.Focus();
             
@@ -424,7 +413,7 @@ public class LevelLayoutEditor : Editor
         int currentClosestExit = -1;
         
         if (m_LevelLayout.rooms.Length == 0)
-        {//if we have no piece, we force the instance in 0,0,0, as it's the seed piece
+        {
             m_CurrentInstance.transform.position = m_LevelLayout.transform.TransformPoint(Vector3.zero);
         }
         else
@@ -474,8 +463,6 @@ public class LevelLayoutEditor : Editor
             }
         }
         
-        
-        //if hot control is not 0, that mean we clicked a gizmo and we don't want that.
         if (Event.current.type == EventType.MouseUp && Event.current.button == 0 && GUIUtility.hotControl == 0)
         {           
             var c = PrefabUtility.InstantiatePrefab(m_SelectedRoom) as LevelRoom;
@@ -506,7 +493,6 @@ public class LevelLayoutEditor : Editor
             {
                 Snap(currentClosestPiece, c, currentClosestExit, m_CurrentUsedExit);
                 
-                //go through all remaining exit and will find if it is close to another to link it
                 for (int k = 0; k < c.Exits.Length; ++k)
                 {
                     if (k == m_CurrentUsedExit)
@@ -519,11 +505,9 @@ public class LevelLayoutEditor : Editor
                     {
                         for (int re = 0; re < m_LevelLayout.rooms[r].Exits.Length; ++re)
                         {
-                            //this is an already used exit no need to test here
                             if(m_LevelLayout.rooms[r].ExitDestination[re] != null)
                                 continue;
         
-                            //if we are close enough, let's consider those 2 exit Linked.
                             if (Vector3.SqrMagnitude(m_LevelLayout.rooms[r].Exits[re].position - testedExit.position) < 0.2f * 0.2f)
                             {
                                 Snap(m_LevelLayout.rooms[r], c, re, k);

@@ -1,4 +1,4 @@
-﻿﻿using System.Collections;
+﻿﻿﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -43,13 +43,11 @@ public class Target : MonoBehaviour
         if(IdleSource != null)
             IdleSource.time = Random.Range(0.0f, IdleSource.clip.length);
             
-        // Initialize shield visual
         InitializeShieldVisual();
     }
 
     void Update()
     {
-        // Update shield visual visibility based on debug setting
         if (shieldVisual != null && shieldVisual.activeSelf != showDebugRays)
         {
             shieldVisual.SetActive(showDebugRays);
@@ -63,51 +61,73 @@ public class Target : MonoBehaviour
 
     void InitializeShieldVisual()
     {
-        // Create shield visual if not assigned
         if (shieldVisual == null)
         {
             CreateDefaultShieldVisual();
         }
         
-        // Set initial visibility
         if (shieldVisual != null)
         {
             shieldVisual.SetActive(showDebugRays);
             
-            // Position the shield in front of the target
             shieldVisual.transform.SetParent(transform);
             shieldVisual.transform.localPosition = new Vector3(0, 0, 0.5f);
             shieldVisual.transform.localRotation = Quaternion.identity;
-            shieldVisual.transform.localScale = Vector3.one * 1.2f;
+            shieldVisual.transform.localScale = Vector3.one * 1.5f;
         }
     }
 
     void CreateDefaultShieldVisual()
     {
-        shieldVisual = GameObject.CreatePrimitive(PrimitiveType.Quad);
-        shieldVisual.name = "ShieldVisual";
+        shieldVisual = new GameObject("ShieldVisual");
         
-        // Remove the collider so it doesn't interfere with gameplay
-        Collider collider = shieldVisual.GetComponent<Collider>();
-        if (collider != null)
-            Destroy(collider);
+        MeshFilter meshFilter = shieldVisual.AddComponent<MeshFilter>();
+        MeshRenderer renderer = shieldVisual.AddComponent<MeshRenderer>();
         
-        // Create a semi-transparent blue material
-        Renderer renderer = shieldVisual.GetComponent<Renderer>();
-        if (renderer != null)
+        Mesh shieldMesh = new Mesh();
+        
+        Vector3[] vertices = {
+            // Front face (Z+)
+            new Vector3(-0.5f, -0.5f, 0.5f), new Vector3(0.5f, -0.5f, 0.5f), new Vector3(0.5f, 0.5f, 0.5f), new Vector3(-0.5f, 0.5f, 0.5f),
+            // Top face (Y+)
+            new Vector3(-0.5f, 0.5f, 0.5f), new Vector3(0.5f, 0.5f, 0.5f), new Vector3(0.5f, 0.5f, -0.5f), new Vector3(-0.5f, 0.5f, -0.5f),
+            // Bottom face (Y-)
+            new Vector3(-0.5f, -0.5f, -0.5f), new Vector3(0.5f, -0.5f, -0.5f), new Vector3(0.5f, -0.5f, 0.5f), new Vector3(-0.5f, -0.5f, 0.5f),
+            // Left face (X-)
+            new Vector3(-0.5f, -0.5f, -0.5f), new Vector3(-0.5f, -0.5f, 0.5f), new Vector3(-0.5f, 0.5f, 0.5f), new Vector3(-0.5f, 0.5f, -0.5f),
+            // Right face (X+)
+            new Vector3(0.5f, -0.5f, 0.5f), new Vector3(0.5f, -0.5f, -0.5f), new Vector3(0.5f, 0.5f, -0.5f), new Vector3(0.5f, 0.5f, 0.5f)
+        };
+        
+        int[] triangles = {
+            // Front face
+            0, 2, 1, 0, 3, 2,
+            // Top face
+            4, 6, 5, 4, 7, 6,
+            // Bottom face
+            8, 10, 9, 8, 11, 10,
+            // Left face
+            12, 14, 13, 12, 15, 14,
+            // Right face
+            16, 18, 17, 16, 19, 18
+        };
+
+        Vector2[] uvs = new Vector2[vertices.Length];
+        for (int i = 0; i < uvs.Length; i++)
         {
-            Material shieldMat = new Material(Shader.Find("Standard"));
-            shieldMat.color = new Color(0, 0.5f, 1f, 0.3f);
-            shieldMat.SetFloat("_Mode", 2); // Fade mode
-            shieldMat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
-            shieldMat.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-            shieldMat.SetInt("_ZWrite", 0);
-            shieldMat.DisableKeyword("_ALPHATEST_ON");
-            shieldMat.EnableKeyword("_ALPHABLEND_ON");
-            shieldMat.DisableKeyword("_ALPHAPREMULTIPLY_ON");
-            shieldMat.renderQueue = 3000;
-            renderer.material = shieldMat;
+            uvs[i] = new Vector2(vertices[i].x + 0.5f, vertices[i].y + 0.5f);
         }
+        
+        shieldMesh.vertices = vertices;
+        shieldMesh.triangles = triangles;
+        shieldMesh.uv = uvs;
+        shieldMesh.RecalculateNormals();
+        
+        meshFilter.mesh = shieldMesh;
+        
+        Material shieldMat = new Material(Shader.Find("Standard"));
+        shieldMat.color = Color.blue;
+        renderer.material = shieldMat;
     }
 
     void DrawShieldVisualization()
