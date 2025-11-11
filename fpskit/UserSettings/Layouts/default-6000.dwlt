@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1521.6
     height: 758.4
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Console
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -65,9 +65,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1039.2
+    x: 1189.6
     y: 0
-    width: 482.40002
+    width: 332
     height: 702.4
   m_MinSize: {x: 275, y: 50}
   m_MaxSize: {x: 4000, y: 4000}
@@ -93,7 +93,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 420
+    width: 480.8
     height: 416.8
   m_MinSize: {x: 201, y: 226}
   m_MaxSize: {x: 4001, y: 4026}
@@ -119,7 +119,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 416.8
-    width: 1039.2
+    width: 1189.6
     height: 285.60004
   m_MinSize: {x: 101, y: 126}
   m_MaxSize: {x: 4001, y: 4026}
@@ -219,7 +219,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1039.2
+    width: 1189.6
     height: 702.4
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
@@ -245,7 +245,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1039.2
+    width: 1189.6
     height: 416.8
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
@@ -267,9 +267,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 420
+    x: 480.8
     y: 0
-    width: 619.19995
+    width: 708.8
     height: 416.8
   m_MinSize: {x: 202, y: 226}
   m_MaxSize: {x: 4002, y: 4026}
@@ -301,9 +301,9 @@ MonoBehaviour:
     m_TextWithWhitespace: "Game\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 427.2
+    x: 488
     y: 86.4
-    width: 617.19995
+    width: 706.8
     height: 390.8
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -322,7 +322,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 771.49994, y: 462.25}
+  m_TargetSize: {x: 883.5, y: 462.25}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -337,8 +337,8 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -308.59998
-    m_HBaseRangeMax: 308.59998
+    m_HBaseRangeMin: -353.4
+    m_HBaseRangeMax: 353.4
     m_VBaseRangeMin: -184.90001
     m_VBaseRangeMax: 184.90001
     m_HAllowExceedBaseRangeMin: 1
@@ -358,23 +358,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 617.19995
+      width: 706.8
       height: 369.8
-    m_Scale: {x: 0.9999999, y: 0.99999994}
-    m_Translation: {x: 308.59998, y: 184.9}
+    m_Scale: {x: 0.99999994, y: 0.99999994}
+    m_Translation: {x: 353.4, y: 184.9}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -308.6
+      x: -353.40002
       y: -184.90001
-      width: 617.2
+      width: 706.80005
       height: 369.80002
     m_MinimalGUI: 1
   m_defaultScale: 0.99999994
-  m_LastWindowPixelSize: {x: 771.49994, y: 488.5}
+  m_LastWindowPixelSize: {x: 883.5, y: 488.5}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 00000000000000000000
@@ -557,9 +557,9 @@ MonoBehaviour:
     m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1046.4
+    x: 1196.8
     y: 86.4
-    width: 481.40002
+    width: 331
     height: 676.4
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -609,7 +609,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 7.2000003
     y: 86.4
-    width: 419
+    width: 479.8
     height: 390.8
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -627,7 +627,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: bada0000
       m_LastClickedID: 0
-      m_ExpandedIDs: 901fffff
+      m_ExpandedIDs: 921fffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -674,9 +674,9 @@ MonoBehaviour:
     m_TextWithWhitespace: "Scene\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 427.2
+    x: 488
     y: 86.4
-    width: 617.19995
+    width: 706.8
     height: 390.8
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -1218,7 +1218,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 7.2000003
     y: 503.2
-    width: 1038.2
+    width: 1188.6
     height: 259.60004
   m_SerializedDataModeController:
     m_DataMode: 0
