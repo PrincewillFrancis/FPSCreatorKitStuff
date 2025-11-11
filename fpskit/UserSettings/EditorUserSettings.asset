@@ -15,7 +15,11 @@ EditorUserSettings:
       value: 05520c5e04075c590f0c5c2046735d444f4e1e7b297f25617b2d1b30b6e36d6e
       flags: 0
     RecentlyUsedSceneGuid-3:
+<<<<<<< HEAD
       value: 5a00000057565c08540d0f244970064415164873287f7e36797c186abbb26d39
+=======
+      value: 5057070506565e0e0f5d08214472594445164028797122697b2d1c60e7b2606f
+>>>>>>> parent of 90f5aee8 (Revert "trying to make force field mod")
       flags: 0
     vcSharedLogLevel:
       value: 0d5e400f0650

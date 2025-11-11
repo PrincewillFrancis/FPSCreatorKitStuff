@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 6217e7111fb40464881713700f262cce
+=======
+guid: fa783073c544bc54aa772cf1b7517878
+>>>>>>> parent of 90f5aee8 (Revert "trying to make force field mod")
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
