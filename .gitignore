@@ -2,7 +2,8 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
-.utmp/
+
+[UTMP]/
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
@@ -10,7 +11,14 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
-*.log
+/[Pp]rojectSettings/
+
+# Unity preferences and UI elements
+*.pref
+/[Ll]ibrary/UIElements/
+/[Ll]ibrary/ScriptAssemblies/
+/[Ll]ibrary/ShaderCache/
+/[Ll]ibrary/PackageCache/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
@@ -73,3 +81,9 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Additional Unity cache and temporary files
+/[Ll]ibrary/Artifacts/
+/[Ll]ibrary/BuildPlayerData/
+/[Ll]ibrary/BuildAssetBundles/
+/[Ll]ibrary/Il2cppBuildCache/
