@@ -58,12 +58,25 @@ public class Controller : MonoBehaviour
     float m_GroundedTimer;
     float m_SpeedAtJump = 0.0f;
 
+    private float m_CurrentHealth;
+
+    // Is the player dead?
+private bool m_IsDead = false;
+    public TMPro.TMP_Text HealthDisplayText;
+
+
+    public float MaxHealth = 100f;
+
     List<Weapon> m_Weapons = new List<Weapon>();
     Dictionary<int, int> m_AmmoInventory = new Dictionary<int, int>();
 
     void Awake()
     {
         Instance = this;
+        m_CharacterController = GetComponent<CharacterController>();
+
+        // Initialize health to maximum
+        m_CurrentHealth = MaxHealth;
     }
     
     void Start()
@@ -243,6 +256,54 @@ public class Controller : MonoBehaviour
         Cursor.lockState = display ? CursorLockMode.None : CursorLockMode.Locked;
         Cursor.visible = display;
     }
+
+   // ============= HEALTH MANAGEMENT =============
+/// <summary>
+/// Apply damage to the player and check for death
+/// </summary>
+
+public void TakeDamage(float damage)
+{
+    // Don't take damage if already dead
+    if (m_IsDead)
+        return;
+    
+    // Reduce health
+    m_CurrentHealth -= damage;
+    
+    // Clamp health to not go below 0
+    if (m_CurrentHealth < 0)
+        m_CurrentHealth = 0;
+    
+    // Update the UI display
+    if (HealthDisplayText != null)
+    {
+        HealthDisplayText.text = "Health: " + Mathf.RoundToInt(m_CurrentHealth);
+    }
+    
+    // Check for death
+    if (m_CurrentHealth <= 0 && !m_IsDead)
+    {
+        Die();
+    }
+    
+    Debug.Log($"Player took {damage} damage. Health: {m_CurrentHealth}/{MaxHealth}");
+}
+
+private void Die()
+{
+    m_IsDead = true;
+    Debug.Log("PLAYER DIED!");
+    
+    // For now, just freeze the player
+    // In Week 4, we'll add respawn
+    enabled = false;
+    
+    if (HealthDisplayText != null)
+    {
+        HealthDisplayText.text = "DEAD";
+    }
+}
 
     void PickupWeapon(Weapon prefab)
     {
