@@ -277,12 +277,14 @@ m_ResolvedPackages:
     - 4.4.3
     - 4.12.0
     - 4.16.3
+    - 4.16.4
     compatible:
     - 4.4.2
     - 4.4.3
     - 4.12.0
     - 4.16.3
-    recommended: 4.16.3
+    - 4.16.4
+    recommended: 4.4.3
     deprecated: []
   dependencies:
   - name: com.unity.ugui
@@ -323,7 +325,7 @@ m_ResolvedPackages:
   unityLifecycle:
     version: 4.4.2
     nextVersion: 
-    recommendedVersion: 4.16.3
+    recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
     isDiscoverable: 1
@@ -1752,7 +1754,7 @@ m_ResolvedPackages:
     - 5.0.0
     - 5.0.1
     - 5.0.2
-    recommended: 5.0.2
+    recommended: 4.12.2
     deprecated: []
   dependencies:
   - name: com.unity.ugui
@@ -1812,7 +1814,7 @@ m_ResolvedPackages:
   unityLifecycle:
     version: 4.12.2
     nextVersion: 5.0.0-pre.5
-    recommendedVersion: 5.0.0
+    recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
     isDiscoverable: 1
@@ -2073,7 +2075,7 @@ m_ResolvedPackages:
   unityLifecycle:
     version: 6.1.0
     nextVersion: 
-    recommendedVersion: 6.1.0
+    recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
     isDiscoverable: 1
@@ -2174,7 +2176,7 @@ m_ResolvedPackages:
     - 1.15.1
     - 1.15.2
     - 1.16.0
-    recommended: 1.15.2
+    recommended: 1.14.0
     deprecated: []
   dependencies:
   - name: com.unity.modules.androidjni
@@ -2217,7 +2219,7 @@ m_ResolvedPackages:
   unityLifecycle:
     version: 1.14.0
     nextVersion: 
-    recommendedVersion: 1.15.1
+    recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
     isDiscoverable: 0
@@ -6271,9 +6273,11 @@ m_ResolvedPackages:
     - 1.8.23
     - 1.8.24
     - 1.8.25
+    - 1.8.26
     compatible:
     - 1.8.25
-    recommended: 1.8.25
+    - 1.8.26
+    recommended: 1.8.26
     deprecated: []
   dependencies:
   - name: com.unity.mathematics
